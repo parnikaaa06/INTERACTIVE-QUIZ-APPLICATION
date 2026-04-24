@@ -5,7 +5,7 @@
 The Interactive Quiz Application is a dynamic, user-friendly web-based platform designed to engage users in knowledge-testing quizzes across various topics. Built with modern front-end technologies, this application offers an immersive experience with features like timed questions, instant feedback, scoring systems, and leaderboards, making learning both fun and competitive.
 
 ## Internship Details
-
+- **INTERACTIVE QUIZ APPLICATION**
 - **Company:** CODTECH IT SOLUTIONS Private Limited  
 - **Name:** PARNIKA PURANIK  
 - **Intern ID:** CTIS7612  
