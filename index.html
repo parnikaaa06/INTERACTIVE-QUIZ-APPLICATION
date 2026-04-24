@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="card">
+                <h1><i class="fas fa-brain"></i> Interactive Quiz</h1>
+                <p>Test your knowledge with our dynamic quiz!</p>
+                <input type="text" id="user-name" placeholder="Enter your name" maxlength="20">
+                <button id="start-quiz-btn" class="btn primary"><i class="fas fa-play"></i> Start Quiz</button>
+                <button id="leaderboard-btn" class="btn secondary"><i class="fas fa-trophy"></i> Leaderboard</button>
+                <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="card quiz-card">
+                <div class="header-row">
+                    <div class="progress-group">
+                        <span class="label">Progress</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="status-group">
+                        <div class="timer-box">
+                            <span class="label">Timer</span>
+                            <strong class="timer" id="timer">30</strong>
+                        </div>
+                        <div class="score-box">
+                            <span class="label">Score</span>
+                            <strong class="score" id="score">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timer-progress-row">
+                    <div class="timer-progress-container">
+                        <div class="timer-progress-bar" id="timer-progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="question-panel">
+                    <div class="question-header">
+                        <span class="question-number" id="question-number">Question 1/10</span>
+                        <span class="difficulty" id="difficulty">Easy</span>
+                    </div>
+                    <h2 id="question-text">What is the capital of France?</h2>
+                    <div class="options" id="options">
+                        <button class="option-btn" data-option="A">Paris</button>
+                        <button class="option-btn" data-option="B">London</button>
+                        <button class="option-btn" data-option="C">Berlin</button>
+                        <button class="option-btn" data-option="D">Madrid</button>
+                    </div>
+                    <div class="feedback" id="feedback"></div>
+                    <div class="navigation">
+                        <button id="prev-btn" class="btn secondary" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button id="next-btn" class="btn primary" disabled><i class="fas fa-arrow-right"></i> Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen">
+            <div class="card">
+                <h1><i class="fas fa-trophy"></i> Quiz Complete!</h1>
+                <div class="result-stats">
+                    <div class="stat">
+                        <span class="stat-label">Final Score:</span>
+                        <span class="stat-value" id="final-score">0/10</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Accuracy:</span>
+                        <span class="stat-value" id="accuracy">0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Time Taken:</span>
+                        <span class="stat-value" id="time-taken">0s</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Best Streak:</span>
+                        <span class="stat-value" id="best-streak">0</span>
+                    </div>
+                </div>
+                <div class="badges" id="badges"></div>
+                <div class="actions">
+                    <button id="restart-btn" class="btn primary"><i class="fas fa-redo"></i> Restart Quiz</button>
+                    <button id="back-to-welcome-btn" class="btn secondary"><i class="fas fa-home"></i> Home</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Screen -->
+        <div id="leaderboard-screen" class="screen">
+            <div class="card">
+                <h1><i class="fas fa-trophy"></i> Leaderboard</h1>
+                <div class="leaderboard-list" id="leaderboard-list">
+                    <!-- Leaderboard items will be inserted here -->
+                </div>
+                <button id="back-from-leaderboard-btn" class="btn secondary"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <div class="setting">
+                    <label for="sound-toggle">Sound Effects:</label>
+                    <input type="checkbox" id="sound-toggle" checked>
+                </div>
+                <button id="close-settings-btn" class="btn secondary">Close</button>
+            </div>
+        </div>
+
+        <!-- Confetti Canvas -->
+        <canvas id="confetti-canvas"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
